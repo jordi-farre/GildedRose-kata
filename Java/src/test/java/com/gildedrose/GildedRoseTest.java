@@ -4,14 +4,26 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class GildedRoseTest {
 
     @Test
-    public void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals("fixme", app.items[0].name);
+    public void testGoldenMaster() throws URISyntaxException, IOException {
+        String expected = new String(Files.readAllBytes(Paths.get(this.getClass().getResource("golden-master.txt").toURI())));
+        try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+             PrintStream printStream = new PrintStream(byteArrayOutputStream)) {
+            System.setOut(printStream);
+            TexttestFixture.main(new String[]{"50"});
+            String result = byteArrayOutputStream.toString();
+            assertEquals(expected, result);
+        }
     }
 
 }
