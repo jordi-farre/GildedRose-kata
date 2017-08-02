@@ -2,8 +2,8 @@ package com.gildedrose;
 
 public class SulfurasItem extends BaseItem {
 
-    protected SulfurasItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    protected SulfurasItem(Item item) {
+        super(item);
     }
 
     @Override

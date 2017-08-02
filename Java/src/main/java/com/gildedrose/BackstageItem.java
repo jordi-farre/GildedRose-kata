@@ -3,8 +3,8 @@ package com.gildedrose;
 
 public class BackstageItem extends BaseItem {
 
-    protected BackstageItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    protected BackstageItem(Item item) {
+        super(item);
     }
 
     @Override
