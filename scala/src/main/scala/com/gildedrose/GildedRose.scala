@@ -6,25 +6,20 @@ class GildedRose(val items: Array[Item]) {
   def updateQuality() {
     items.foreach { item =>
       decreaseSellIn(item)
-      if (item.name.equals("Aged Brie") || item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+      if (item.name.equals("Aged Brie")) {
         increaseQuality(item)
-
-        if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-          if (item.sellIn < 10) {
-            increaseQuality(item)
-          }
-
-          if (item.sellIn < 5) {
-            increaseQuality(item)
-          }
+      } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+        increaseQuality(item)
+        if (item.sellIn < 10) {
+          increaseQuality(item)
         }
+        if (item.sellIn < 5) {
+          increaseQuality(item)
+        }
+      } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
       } else {
         if (item.quality > 0) {
-          if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-
-          } else {
-            item.quality = item.quality - 1
-          }
+          item.quality = item.quality - 1
         }
       }
 
