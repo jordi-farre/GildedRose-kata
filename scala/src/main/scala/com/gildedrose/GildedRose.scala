@@ -13,17 +13,15 @@ class GildedRose(val items: Array[Item]) {
           }
         }
       } else {
-        if (item.quality < 50) {
-          item.quality = item.quality + 1
+        increaseQuality(item)
 
-          if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (item.sellIn < 11) {
-              increaseQuality(item)
-            }
+        if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+          if (item.sellIn < 11) {
+            increaseQuality(item)
+          }
 
-            if (item.sellIn < 6) {
-              increaseQuality(item)
-            }
+          if (item.sellIn < 6) {
+            increaseQuality(item)
           }
         }
       }
@@ -55,5 +53,5 @@ class GildedRose(val items: Array[Item]) {
       item.quality = item.quality + 1
     }
   }
-  
+
 }
