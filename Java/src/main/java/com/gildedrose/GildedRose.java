@@ -10,8 +10,7 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             BaseItem baseItem = BaseItem.from(item);
-            baseItem.updateSellIn();
-            baseItem.updateQuality();
+            baseItem.update();
             item.quality = baseItem.quality;
             item.sellIn = baseItem.sellIn;
         }

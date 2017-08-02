@@ -7,12 +7,12 @@ public class SulfurasItem extends BaseItem {
     }
 
     @Override
-    public void updateQuality() {
+    protected void updateQuality() {
         // never change quality
     }
 
     @Override
-    public void updateSellIn() {
+    protected void updateSellIn() {
         // never change sellin
     }
 

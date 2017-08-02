@@ -19,11 +19,16 @@ public class BaseItem extends Item {
         }
     }
 
-    public void updateSellIn() {
+    public void update() {
+        this.updateSellIn();
+        this.updateQuality();
+    }
+
+    protected void updateSellIn() {
         this.sellIn--;
     }
 
-    public void updateQuality() {
+    protected void updateQuality() {
         if (this.quality > 0) {
             this.quality--;
         }

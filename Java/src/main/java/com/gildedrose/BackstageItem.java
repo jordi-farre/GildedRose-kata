@@ -8,7 +8,7 @@ public class BackstageItem extends BaseItem {
     }
 
     @Override
-    public void updateQuality() {
+    protected void updateQuality() {
         if (this.quality < 50) {
             this.quality++;
         }
