@@ -18,11 +18,15 @@ class GildedRose(val items: Array[Item]) {
 
           if (items(i).name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (items(i).sellIn < 11) {
-              increaseQuality(i)
+              if (items(i).quality < 50) {
+                items(i).quality = items(i).quality + 1
+              }
             }
 
             if (items(i).sellIn < 6) {
-              increaseQuality(i)
+              if (items(i).quality < 50) {
+                items(i).quality = items(i).quality + 1
+              }
             }
           }
         }
@@ -44,16 +48,11 @@ class GildedRose(val items: Array[Item]) {
             items(i).quality = items(i).quality - items(i).quality
           }
         } else {
-          increaseQuality(i)
+          if (items(i).quality < 50) {
+            items(i).quality = items(i).quality + 1
+          }
         }
       }
     }
   }
-
-  private def increaseQuality(i: Int) = {
-    if (items(i).quality < 50) {
-      items(i).quality = items(i).quality + 1
-    }
-  }
-  
 }
