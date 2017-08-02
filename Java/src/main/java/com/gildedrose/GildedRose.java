@@ -30,6 +30,8 @@ class GildedRose {
                         item.quality = 0;
                     }
                     break;
+                case "Sulfuras, Hand of Ragnaros":
+                    break;
                 default:
                     if (item.quality > 0) {
                         decreaseQuality(item);
@@ -50,9 +52,6 @@ class GildedRose {
     }
 
     private void decreaseQuality(Item item) {
-        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            return;
-        }
         item.quality--;
     }
 
