@@ -21,3 +21,9 @@ class BackstageItem(item: Item) extends BaseItem(item) {
     }
   }
 }
+
+object BackstageItem extends BaseFactory {
+
+  def create(item: Item): Option[BaseItem] = if ("Backstage passes to a TAFKAL80ETC concert".equals(item.name)) Option(new BackstageItem(item)) else None;
+
+}

@@ -11,3 +11,9 @@ class SulfurasItem(item: Item) extends BaseItem(item) {
   }
 
 }
+
+object SulfurasItem extends BaseFactory {
+
+  def create(item: Item): Option[BaseItem] = if ("Sulfuras, Hand of Ragnaros".equals(item.name)) Option(new SulfurasItem(item)) else None;
+
+}

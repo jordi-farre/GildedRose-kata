@@ -15,3 +15,9 @@ class AgedBrieItem(item: Item) extends BaseItem(item) {
     }
   }
 }
+
+object AgedBrieItem extends BaseFactory {
+
+  def create(item: Item): Option[BaseItem] = if ("Aged Brie".equals(item.name)) Option(new AgedBrieItem(item)) else None;
+
+}
