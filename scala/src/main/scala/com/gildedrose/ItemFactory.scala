@@ -2,14 +2,14 @@ package com.gildedrose
 
 object ItemFactory {
 
+  val itemFactories = Array[BaseFactory](AgedBrieItem, BackstageItem, SulfurasItem)
+
   def create(item: Item): BaseItem = {
-    val factoryArray = Array[BaseFactory](AgedBrieItem, BackstageItem, SulfurasItem)
-    var baseItem:Option[BaseItem] = None
-    factoryArray.foreach(factory => {
-      val createdItem:Option[BaseItem] = factory.create(item)
-      if (createdItem.isDefined) baseItem = createdItem
-    })
-    baseItem.getOrElse(new BaseItem(item))
+    itemFactories
+        .map(factory => factory.create(item))
+        .flatten
+        .headOption
+        .getOrElse(new BaseItem(item))
   }
 
 }
